@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import services, clubBooking, Events, catagory, Gallery
+from .models import services, clubBooking, Events, catagory, Gallery, emergency_contacts
 from django.contrib.auth.models import Group, User
 
 admin.site.unregister(Group)
@@ -9,3 +9,4 @@ admin.site.register(clubBooking)
 admin.site.register(Events)
 admin.site.register(catagory)
 admin.site.register(Gallery)
+admin.site.register(emergency_contacts)

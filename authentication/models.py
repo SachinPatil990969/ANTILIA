@@ -41,3 +41,6 @@ class memberProfileModel(baseModel):
     member_id = models.ForeignKey(membersModel, on_delete=models.CASCADE)
     profile = models.FileField(upload_to=helpers.custom_file_name, default='default-profile.png')
     gender = models.CharField(max_length=20, choices=GENDER_OPTIONS)
+
+    def __str__(self):
+        return f"{self.member_id}"

@@ -10,6 +10,7 @@ urlpatterns = [
     path('gallery_view/', gallery_view, name='gallery_view'),
     path('events_view/', events_view, name='events_view'),
     path('emergency_contact_view/', emergency_contact_view, name='emergency_contact_view'),
-    path('suggestion_view/', suggestion_view, name='suggestion_view'),
+    path('news_view/', news_view, name='news_view'),
     path('profile_view/', profile_view, name='profile_view'),
+    path('edit_profile_view/', edit_profile_view, name='edit_profile_view'),
 ]

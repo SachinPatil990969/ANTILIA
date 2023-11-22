@@ -74,4 +74,12 @@ class Gallery(baseModel):
     DIR_NAME = 'member_profiles'
     photo = models.FileField(upload_to=custom_file_name, default='default-profile.png')
     file_date = models.DateField(default=datetime.now)
-    
+
+class emergency_contacts(baseModel):
+    DIR_NAME = 'Emergency contact'
+    emergency_photo = models.FileField(upload_to=custom_file_name, default='default-event.png')
+    contact_name = models.CharField(max_length=255)
+    contact_no = models.CharField(max_length=255)
+
+    def __str__(self):
+        return f"{self.contact_name}"

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Edit Profile
+{% endblock %}
+
+{% block body %}
+<div class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col  w-full mx-auto my-4">
+    <form action="" method="post">
+      {% csrf_token %}
+    <h2 class="text-indigo-600 text-lg font-medium title-font mb-5">Edit Profile</h2>
+    
+    <div class="relative mb-4">
+      <label for="full-name" class="leading-7 text-sm text-gray-600">First name</label>
+      <input type="text" id="first_name" value="{{first_name}}" name="first_name" placeholder="First name" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+    </div>
+
+    <div class="relative mb-4">
+      <label for="full-name" class="leading-7 text-sm text-gray-600">Last name</label>
+      <input type="text" id="last_name" value="{{last_name}}" name="last_name" placeholder="Last name" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+    </div>
+
+    <div class="relative mb-4">
+      <label for="mobile" class="leading-7 text-sm text-gray-600">Mobile</label>
+      <input type="text" id="mobile" value="{{mobile}}" name="mobile" placeholder="Mobile" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+    </div>
+    
+    <button type="submit" class="text-white bg-indigo-600 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-700 rounded text-lg">Submit</button>
+    </form>
+  </div>
+{% endblock %}

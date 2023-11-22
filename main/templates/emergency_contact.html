@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}
     Emergency Contact
 {% endblock %}
@@ -42,87 +42,17 @@
             <p class="lg:w-2/3 mx-auto leading-relaxed text-base">An emergency contacts list is more than just a piece of paper; it's a lifeline during challenging times. It provides a sense of security, ensuring that help is just a call away when needed most. Whether it's a medical emergency, a natural disaster, or unexpected situations, having essential contacts readily available can make all the difference. By maintaining an up-to-date list that includes medical professionals, family members, and key services, we empower ourselves to respond swiftly and efficiently to any crisis. It's a simple yet vital step toward preparedness and peace of mind for ourselves and our loved ones.</p>
           </div>
           <div class="flex flex-wrap -m-2">
+            {% for emergency_contact in emergency_contacts %}
             <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
               <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                <img alt="Ambulance" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="/media/ambulance.png">
+                <img alt="Ambulance" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="{{ emergency_contact.emergency_photo.url }}">
                 <div class="flex-grow">
-                  <h2 class="text-gray-900 title-font font-medium">Ambulance</h2>
-                  <p class="text-gray-500">108</p>
+                  <h2 class="text-gray-900 title-font font-medium">{{ emergency_contact.contact_name }}</h2>
+                  <p class="text-gray-500">{{ emergency_contact.contact_no }}</p>
                 </div>
               </div>
             </div>
-            <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
-              <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="/media/fire_station.png">
-                <div class="flex-grow">
-                  <h2 class="text-gray-900 title-font font-medium">Fire Station</h2>
-                  <p class="text-gray-500">101</p>
-                </div>
-              </div>
-            </div>
-            <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
-              <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="/media/police.png">
-                <div class="flex-grow">
-                  <h2 class="text-gray-900 title-font font-medium">Police</h2>
-                  <p class="text-gray-500">100</p>
-                </div>
-              </div>
-            </div>
-            <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
-              <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="/media/police.png">
-                <div class="flex-grow">
-                  <h2 class="text-gray-900 title-font font-medium">Disaster Help Line</h2>
-                  <p class="text-gray-500">1077</p>
-                </div>
-              </div>
-            </div>
-            <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
-              <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="/media/police.png">
-                <div class="flex-grow">
-                  <h2 class="text-gray-900 title-font font-medium">Earthquake Helpline Service</h2>
-                  <p class="text-gray-500">1092</p>
-                </div>
-              </div>
-            </div>
-            <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
-              <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="/media/police.png">
-                <div class="flex-grow">
-                  <h2 class="text-gray-900 title-font font-medium">Natural Disaster Control Room</h2>
-                  <p class="text-gray-500">1096</p>
-                </div>
-              </div>
-            </div>
-            <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
-              <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="/media/police.png">
-                <div class="flex-grow">
-                  <h2 class="text-gray-900 title-font font-medium">Child Help line</h2>
-                  <p class="text-gray-500">1098</p>
-                </div>
-              </div>
-            </div>
-            <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
-              <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="/media/police.png">
-                <div class="flex-grow">
-                  <h2 class="text-gray-900 title-font font-medium">Senior Citizen Help line</h2>
-                  <p class="text-gray-500">1253</p>
-                </div>
-              </div>
-            </div>
-            <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
-              <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="/media/police.png">
-                <div class="flex-grow">
-                  <h2 class="text-gray-900 title-font font-medium">Cyber Crime Complaint Reporting Helpline No</h2>
-                  <p class="text-gray-500">1930</p>
-                </div>
-              </div>
-            </div>
+            {% endfor %}
           </div>
         </div>
       </section>

@@ -34,9 +34,9 @@
                                 <td class="py-2">{{ request.session.member_data.mobile }}</td>
                             </tr>
                         </table>
-                        <div class="mt-6">
-                            <button class="inline-flex text-white bg-indigo-600 border-0 py-1 px-4 focus:outline-none hover:bg-indigo-700 rounded">Edit profile</button>
-                        </div>
+                        {% comment %} <div class="mt-6">
+                            <a href="{% url 'edit_profile_view' %}" class="inline-flex text-white bg-indigo-600 border-0 py-1 px-4 focus:outline-none hover:bg-indigo-700 rounded">Edit profile</a>
+                        </div> {% endcomment %}
                     </div>
                 </div>
             </div>

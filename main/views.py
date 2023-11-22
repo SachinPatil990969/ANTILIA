@@ -3,7 +3,11 @@ from django.contrib import messages
 from datetime import datetime
 from authentication.helpers import require_access_token, decode_jwt_token, dt_to_str
 from authentication.models import membersModel, memberProfileModel
-from .models import services, clubBooking, Events, Gallery
+from .models import services, clubBooking, Events, Gallery, emergency_contacts
+from newsapi import NewsApiClient
+
+newsapi = NewsApiClient(api_key='47025f344a8a4df5917f2dbf74c47b02')
+
 
 # Create your views here.
 
@@ -129,13 +133,43 @@ def events_view(request):
 
 @require_access_token
 def emergency_contact_view(request):
-    return render(request, 'emergency_contact.html')
+    emergency_contacts_ = emergency_contacts.objects.all().order_by('contact_name')
+    context = {
+        'emergency_contacts' : emergency_contacts_
+    }
+    return render(request, 'emergency_contact.html', context)
 
 @require_access_token
-def suggestion_view(request):
-    return render(request, 'suggestion.html')
+def news_view(request):
+    sources = newsapi.get_sources()
+    context = {
+        'news' : sources['sources']
+    }
+    return render(request, 'news.html', context)
 
 @require_access_token
 def profile_view(request):
     return render(request, 'profile.html')
 
+@require_access_token
+def edit_profile_view(request, member_id):
+    # update_event(request, booking_id):
+    if request.method == 'POST':
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        mobile = request.POST['mobile']
+        getProfile = membersModel.objects.get(id=member_id)
+        getProfile.first_name = first_name
+        getProfile.last_name = last_name
+        getProfile.mobile = mobile
+        getProfile.save()
+        return redirect('profile_view')
+
+    getProfile = membersModel.objects.get(id = member_id)
+    context = {
+        'first_name': getProfile.first_name,
+        'last_name': getProfile.last_name,
+        'mobile': getProfile.mobile,
+    }
+    print(context)
+    return render(request, 'edit_profile.html', context)
